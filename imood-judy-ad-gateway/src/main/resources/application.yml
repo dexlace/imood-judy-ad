@@ -1,0 +1,27 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: ad-gateway
+eureka:
+  client:
+    # 注册进 Eureka 的服务中心
+    register-with-eureka: true
+    # 检索 服务中心 的其它服务
+    fetch-registry: true
+    service-url:
+      # 设置与 Eureka Server 交互的地址
+      defaultZone: http://localhost:7001/eureka/
+
+zuul:
+  prefix: /imood
+  routes:
+    sponsor:  # 自己随便取
+      path: /ad-sponsor/**
+      serviceId: ad-sponsor
+      strip-prefix: false
+    search:
+      path: /ad-search/**
+      serviceId: ad-search
+      strip-prefix: false
+

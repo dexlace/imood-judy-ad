@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: ad-register
+
+
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: localhost  # eureka 服务器的实例地址
+
+
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   # 注意启动时没有eureka
+
+## 互相注册  守望相助
+#---
+#spring:
+#  application:
+#    name: ad-eureka
+#  profiles: eureka8000
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    hostname: eureka8000
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://eureka8001:8001/eureka/,http://eureka8002:8002/eureka/
+#
+#---
+#spring:
+#  application:
+#    name: ad-eureka
+#  profiles: eureka8001
+#server:
+#  port: 8001
+#eureka:
+#  instance:
+#    hostname: eureka8001
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://eureka8000:8000/eureka/,http://eureka8002:8002/eureka/
+#
+#---
+#spring:
+#  application:
+#    name: ad-eureka
+#  profiles: eureka8002
+#server:
+#  port: 8002
+#eureka:
+#  instance:
+#    hostname: eureka8002
+#    prefer-ip-address: false
+#  client:
+#    service-url:
+#      defaultZone: http://eureka8000:8000/eureka/,http://eureka8001:8001/eureka/

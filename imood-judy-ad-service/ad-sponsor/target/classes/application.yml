@@ -1,0 +1,35 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /ad-sponsor
+
+spring:
+  application:
+    name: ad-sponsor
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.format_sql: true
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/imood_judy_ad_data?autoReconnect=true
+    username: root
+    password: 123456
+    tomcat:
+      max-active: 4
+      min-idle: 2
+      initial-size: 2
+
+eureka:
+  client:
+    # 注册进 Eureka 的服务中心
+    register-with-eureka: true
+    # 检索 服务中心 的其它服务
+    fetch-registry: true
+    service-url:
+      # 设置与 Eureka Server 交互的地址
+      defaultZone: http://localhost:7001/eureka/
+
+

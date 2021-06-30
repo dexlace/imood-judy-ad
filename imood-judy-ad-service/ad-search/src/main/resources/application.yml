@@ -1,0 +1,54 @@
+server:
+  port: 9002
+  servlet:
+    context-path: /ad-search
+
+spring:
+  application:
+    name: ad-search
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.format_sql: true
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/imood_judy_ad_data?autoReconnect=true
+    username: root
+    password: 123456
+    tomcat:
+      max-active: 4
+      min-idle: 2
+      initial-size: 2
+  kafka:
+    bootstrap-servers: 192.168.205.120:9092,192.168.205.121:9092,192.168.205.122:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: true
+
+
+eureka:
+  client:
+    # 注册进 Eureka 的服务中心
+    register-with-eureka: true
+    # 检索 服务中心 的其它服务
+    fetch-registry: true
+    service-url:
+      # 设置与 Eureka Server 交互的地址
+      defaultZone: http://localhost:7001/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  config: classpath:logback.xml
+  file: ad-search.log

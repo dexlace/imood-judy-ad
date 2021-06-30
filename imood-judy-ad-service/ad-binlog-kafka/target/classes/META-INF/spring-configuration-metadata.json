@@ -1,0 +1,42 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.dexlace.kafka.mysql.BinlogConfig",
+      "name": "adconf.mysql",
+      "type": "com.dexlace.kafka.mysql.BinlogConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.dexlace.kafka.mysql.BinlogConfig",
+      "name": "adconf.mysql.binlog-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dexlace.kafka.mysql.BinlogConfig",
+      "name": "adconf.mysql.host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dexlace.kafka.mysql.BinlogConfig",
+      "name": "adconf.mysql.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.dexlace.kafka.mysql.BinlogConfig",
+      "name": "adconf.mysql.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.dexlace.kafka.mysql.BinlogConfig",
+      "name": "adconf.mysql.position",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.dexlace.kafka.mysql.BinlogConfig",
+      "name": "adconf.mysql.username",
+      "type": "java.lang.String"
+    }
+  ]
+}
